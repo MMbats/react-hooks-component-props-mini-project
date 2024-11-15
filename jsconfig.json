@@ -1,5 +1,13 @@
 {
-  "typeAcquisition": {
-    "include": ["jest"]
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "es2015"],
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "react"
+  },
+  "include": ["src"],
+  "jest": {
+    "setupFilesAfterEnv": ["<rootDir>/src/setupTests.js"]
   }
 }

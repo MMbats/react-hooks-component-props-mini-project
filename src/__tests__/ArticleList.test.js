@@ -1,6 +1,7 @@
-import "@testing-library/jest-dom";
-import { render } from "@testing-library/react";
-import ArticleList from "../components/ArticleList";
+import '@testing-library/jest-dom'; // Custom matchers like toBeInTheDocument
+import { render } from '@testing-library/react';
+import { act } from 'react';  // Optional if you want to use act explicitly
+import ArticleList from '../components/ArticleList';
 
 const posts = [
   {
@@ -28,7 +29,8 @@ test("renders a <main> element", () => {
   expect(container.querySelector("main")).toBeInTheDocument();
 });
 
-test("renders a Article component for each post passed as a prop", () => {
+test("renders an Article component for each post passed as a prop", () => {
   const { container } = render(<ArticleList posts={posts} />);
+  // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
   expect(container.querySelector("main").children).toHaveLength(3);
 });
